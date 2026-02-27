@@ -1150,14 +1150,6 @@ body {
         <p id="humanBody">Use ready-to-use files and generate a similar presentation quickly with minimal prompting.</p>
         <a id="downloadPromptBtn" class="about-btn" href="#" download>Download BlackHoleEdu (Offline ZIP)</a>
       </div>
-      <div class="about-card">
-        <h3 id="agentTitle">Are you agent?</h3>
-        <p id="agentBody">Use the install link below to load the skill directly, then run the template workflow for a topic-adapted cinematic deck.</p>
-        <div class="agent-install">
-          <div id="agentInstallLabel" class="agent-install-label">Skill Install URL</div>
-          <div id="agentInstallCode" class="agent-install-code">https://example.com/skills/cinematic-presentation-skill.zip</div>
-        </div>
-      </div>
     </div>
     <div id="aboutFooter" class="about-footer">
       Copyright © 2026 - Made with ♥ by <a href="https://github.com/DrokRhys" target="_blank" rel="noopener noreferrer">Drok Rhys</a> at <a href="https://magiostudios.com" target="_blank" rel="noopener noreferrer">Magio Studios</a>. Join the community on <a href="https://patreon.com/magiostudios" target="_blank" rel="noopener noreferrer">Patreon</a>.
@@ -1177,10 +1169,6 @@ const aboutBody = document.getElementById('aboutBody');
 const downloadPromptBtn = document.getElementById('downloadPromptBtn');
 const humanTitle = document.getElementById('humanTitle');
 const humanBody = document.getElementById('humanBody');
-const agentTitle = document.getElementById('agentTitle');
-const agentBody = document.getElementById('agentBody');
-const agentInstallLabel = document.getElementById('agentInstallLabel');
-const agentInstallCode = document.getElementById('agentInstallCode');
 const aboutFooter = document.getElementById('aboutFooter');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -1224,14 +1212,11 @@ const uiText = {
     particles: 'částic',
     aboutNav: 'About',
     aboutTitle: 'O Šabloně',
-    aboutBody: 'Na této stránce je univerzální blueprint pro tvorbu podobně filmové AI prezentace. Není vázaný na jedno téma, ale drží stejný vizuální styl, flow, animace a funkcionalitu.',
+    aboutBody: 'Tahle šablona je pro volné použití: můžeš ji použít pro libovolné téma prezentace a upravit podle sebe.',
     downloadPrompt: 'Stáhnout BlackHoleEdu (Offline ZIP)',
     humanTitle: 'Jsi člověk?',
-    humanBody: 'Stáhni si celou stránku BlackHoleEdu včetně assetů.',
-    agentTitle: 'Jsi agent?',
-    agentBody: 'Použij instalační link níže, načti skill přímo do prostředí a spusť šablonový workflow pro libovolné téma.',
-    agentInstallLabel: 'Instalační URL skillu',
-    footerHtml: 'Copyright © 2026 - Made with ♥ by <a href="https://github.com/DrokRhys" target="_blank" rel="noopener noreferrer">Drok Rhys</a> at <a href="https://magiostudios.com" target="_blank" rel="noopener noreferrer">Magio Studios</a>. Join the community on <a href="https://patreon.com/magiostudios" target="_blank" rel="noopener noreferrer">Patreon</a>.<br>Template je pod MIT licencí. Hudba byla vytvořena v Suno (Pro účet); použití je vázáno na podmínky Suno. Zdroje obrázků jsou uvedené v <a href="./images/slides/README.md" target="_blank" rel="noopener noreferrer">README</a> (NASA/ESA/open sources).',
+    humanBody: 'Stáhni si kompletní offline verzi stránky BlackHoleEdu včetně assetů.',
+    footerHtml: 'Copyright © 2026 - Made with ♥ by <a href="https://github.com/DrokRhys" target="_blank" rel="noopener noreferrer">Drok Rhys</a> at <a href="https://magiostudios.com" target="_blank" rel="noopener noreferrer">Magio Studios</a>. Join the community on <a href="https://patreon.com/magiostudios" target="_blank" rel="noopener noreferrer">Patreon</a>.<br>Tato šablona je poskytována pro volné použití pod licencí MIT. Každou prezentaci můžeš použít a upravit podle sebe. Offline verze funguje bez internetu: stáhni ZIP, rozbal ho a otevři <code>index.html</code> v prohlížeči (pokud se hudba nespustí sama, klikni na Play). Hudba byla vytvořena v Suno (Pro účet); použití je vázáno na podmínky Suno. Zdroje obrázků jsou uvedené v <a href="./images/slides/README.md" target="_blank" rel="noopener noreferrer">README</a> (NASA/ESA/open sources).',
   },
   en: {
     backHome: '← Back to Homepage',
@@ -1253,14 +1238,11 @@ const uiText = {
     particles: 'particles',
     aboutNav: 'About',
     aboutTitle: 'About This Template',
-    aboutBody: 'This page includes a reusable blueprint for cinematic AI-generated presentations. It stays topic-agnostic while preserving this visual quality, pacing, and interaction style.',
+    aboutBody: 'This template is for free use: you can adapt it to any presentation topic and modify it as needed.',
     downloadPrompt: 'Download BlackHoleEdu (Offline ZIP)',
     humanTitle: 'Are you human?',
-    humanBody: 'Download the complete BlackHoleEdu page with all assets.',
-    agentTitle: 'Are you agent?',
-    agentBody: 'Use the install link below to load the skill directly and run the template workflow for a topic-adapted cinematic deck.',
-    agentInstallLabel: 'Skill install URL',
-    footerHtml: 'Copyright © 2026 - Made with ♥ by <a href="https://github.com/DrokRhys" target="_blank" rel="noopener noreferrer">Drok Rhys</a> at <a href="https://magiostudios.com" target="_blank" rel="noopener noreferrer">Magio Studios</a>. Join the community on <a href="https://patreon.com/magiostudios" target="_blank" rel="noopener noreferrer">Patreon</a>.<br>Template is released under the MIT License. Music was generated with Suno (Pro account); usage remains subject to Suno Terms. Image sources are listed in the <a href="./images/slides/README.md" target="_blank" rel="noopener noreferrer">README</a> (NASA/ESA/open sources).',
+    humanBody: 'Download the complete offline BlackHoleEdu page with all assets.',
+    footerHtml: 'Copyright © 2026 - Made with ♥ by <a href="https://github.com/DrokRhys" target="_blank" rel="noopener noreferrer">Drok Rhys</a> at <a href="https://magiostudios.com" target="_blank" rel="noopener noreferrer">Magio Studios</a>. Join the community on <a href="https://patreon.com/magiostudios" target="_blank" rel="noopener noreferrer">Patreon</a>.<br>This template is provided for free use under the MIT License. You may use and modify any presentation made with it. Offline mode works without internet: download the ZIP, extract it, then open <code>index.html</code> in your browser (if audio does not start automatically, click Play). Music was generated with Suno (Pro account); usage remains subject to Suno Terms. Image sources are listed in the <a href="./images/slides/README.md" target="_blank" rel="noopener noreferrer">README</a> (NASA/ESA/open sources).',
   },
 };
 
@@ -1426,10 +1408,6 @@ if (aboutBody) aboutBody.textContent = uiText[pageLang].aboutBody;
 if (downloadPromptBtn) downloadPromptBtn.textContent = uiText[pageLang].downloadPrompt;
 if (humanTitle) humanTitle.textContent = uiText[pageLang].humanTitle;
 if (humanBody) humanBody.textContent = uiText[pageLang].humanBody;
-if (agentTitle) agentTitle.textContent = uiText[pageLang].agentTitle;
-if (agentBody) agentBody.textContent = uiText[pageLang].agentBody;
-if (agentInstallLabel) agentInstallLabel.textContent = uiText[pageLang].agentInstallLabel;
-if (agentInstallCode) agentInstallCode.textContent = `${window.location.origin}/blackholeedu/skill/cinematic-presentation-skill/`;
 if (aboutFooter) aboutFooter.innerHTML = uiText[pageLang].footerHtml;
 if (langCsBtn && langEnBtn) {
   const setActive = () => {
