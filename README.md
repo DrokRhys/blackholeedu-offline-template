@@ -12,10 +12,10 @@ You can use, modify, and redistribute presentations made with it.
 ## What's Included
 
 - `index.html` - main presentation page
-- `black_holes.html` - mirrored version of the same presentation
 - `images/slides/*` - slide background images
 - `ambient-1.mp3`, `ambient-2.mp3` - ambient music tracks
 - `assets/preview.png` - project preview image
+- `LICENSE` - MIT license text
 
 ## Run Offline
 
