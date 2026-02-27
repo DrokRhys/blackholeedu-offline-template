@@ -773,7 +773,7 @@ body {
 
         <div style="margin-top:32px;padding:22px 26px;border:1px solid rgba(196,75,255,0.2);background:rgba(196,75,255,0.04);position:relative;">
           <div style="position:absolute;top:-18px;left:18px;font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(196,75,255,0.08);line-height:1;">"</div>
-          <div style="font-size:16px;font-style:italic;color:#c44bff;line-height:1.7;position:relative;z-index:1;">
+          <div id="philoQuoteText" class="quote-text" style="font-size:16px;font-style:italic;color:#c44bff;line-height:1.7;position:relative;z-index:1;">
             Velké množství hmoty si navzájem zpomaluje vlastní existenci. 
             Čas není absolutní — je to tempo,<br>kterým věci reagují.
           </div>
@@ -1184,6 +1184,7 @@ const canvasACaption = document.getElementById('canvasACaption');
 const canvasBCaption = document.getElementById('canvasBCaption');
 const btnModelA = document.getElementById('btnModelA');
 const btnModelB = document.getElementById('btnModelB');
+const philoQuoteText = document.getElementById('philoQuoteText');
 const philoQuoteSrc = document.getElementById('philoQuoteSrc');
 const urlParams = new URLSearchParams(window.location.search);
 const storedLang = localStorage.getItem('magio-language');
@@ -1210,6 +1211,9 @@ const uiText = {
     simDense: '● hustá oblast — pomalé interakce',
     simAddWithCount: '⊕ klikni = přidej hmotu',
     particles: 'částic',
+    massLabel: 'HMOTA',
+    interactionDown: 'interakce ↓',
+    philoQuoteText: 'Velké množství hmoty si navzájem zpomaluje vlastní existenci. Čas není absolutní — je to tempo,<br>kterým věci reagují.',
     aboutNav: 'About',
     aboutTitle: 'O Šabloně',
     aboutBody: 'Tahle šablona je pro volné použití: můžeš ji použít pro libovolné téma prezentace a upravit podle sebe.',
@@ -1236,6 +1240,9 @@ const uiText = {
     simDense: '● dense region — slow interactions',
     simAddWithCount: '⊕ click = add mass',
     particles: 'particles',
+    massLabel: 'MASS',
+    interactionDown: 'interaction ↓',
+    philoQuoteText: 'Large concentrations of mass slow down interactions. Time is not absolute — it is the pace at which processes respond.',
     aboutNav: 'About',
     aboutTitle: 'About This Template',
     aboutBody: 'This template is for free use: you can adapt it to any presentation topic and modify it as needed.',
@@ -1295,6 +1302,7 @@ function applyPresentationLanguage(lang) {
     'Bez korekce dilatace by se GPS mýlilo o 11 km/den': 'Without relativistic correction, GPS would drift by about 11 km/day.',
     'Hodiny v přízemí tikají o 45 ns/den pomaleji než na vrcholu Everestu': 'Clocks near sea level tick about 45 ns/day slower than at Everest summit.',
     'Na horizontu se interakce zastaví úplně — čas se pro vnějšího pozorovatele zastaví': 'At the horizon, interactions effectively freeze for a distant observer.',
+    'Velké množství hmoty si navzájem zpomaluje vlastní existenci. Čas není absolutní — je to tempo, kterým věci reagují.': 'Large concentrations of mass slow down interactions. Time is not absolute — it is the pace at which processes respond.',
   });
 
   // Slide 1
@@ -1326,6 +1334,7 @@ function applyPresentationLanguage(lang) {
   setNodeHTML(slides[3], '.slide-heading', 'Mass slows<br>time');
   setNodeHTML(slides[3], '.slide-body', 'Time dilation is not magic. It is a <strong>natural consequence of density</strong>. The more mass concentrated in one region, the slower interactions become.', 0);
   setNodeHTML(slides[3], '.slide-body', 'Clocks do not tick because of a mechanism alone, but because of <strong>electromagnetic interactions</strong> between atoms. In strong gravity, these interactions slow down.', 1);
+  setNodeHTML(slides[3], '.quote-text', 'Large concentrations of mass slow down interactions. Time is not absolute — it is the pace at which processes respond.');
   if (philoQuoteSrc) philoQuoteSrc.innerHTML = '— physical interpretation of general relativity';
   setNodeHTML(slides[3], 'div[style*="GPS SATELITY"]', 'GPS SATELLITES');
   setNodeHTML(slides[3], 'div[style*="PŘÍZEMÍ VS. HORA"]', 'GROUND FLOOR VS. MOUNTAIN');
@@ -1431,6 +1440,7 @@ if (canvasACaption) canvasACaption.textContent = uiText[pageLang].clickAddMass;
 if (canvasBCaption) canvasBCaption.textContent = uiText[pageLang].clickCanvas;
 if (btnModelA) btnModelA.textContent = pageLang === 'en' ? 'EXTERNAL MASS' : 'VNĚJŠÍ HMOTA';
 if (btnModelB) btnModelB.textContent = pageLang === 'en' ? 'PARTICLE DENSITY' : 'HUSTOTA ČÁSTIC';
+if (philoQuoteText) philoQuoteText.innerHTML = uiText[pageLang].philoQuoteText;
 
 if (aboutSection && aboutWrap) {
   const aboutObserver = new IntersectionObserver((entries) => {
@@ -1917,10 +1927,10 @@ class ParticleSim {
         ctx.textAlign='center';
         ctx.font=`700 8px 'Space Mono',monospace`;
         ctx.fillStyle=`rgba(255,150,80,${w.fade*0.85})`;
-        ctx.fillText('HMOTA', w.x, w.y+r+15);
+        ctx.fillText(uiText[pageLang].massLabel, w.x, w.y+r+15);
         ctx.font=`7px 'Space Mono',monospace`;
         ctx.fillStyle=`rgba(200,60,255,${w.fade*0.65})`;
-        ctx.fillText('interakce ↓', w.x, w.y+r+26);
+        ctx.fillText(uiText[pageLang].interactionDown, w.x, w.y+r+26);
       }
     }
 
