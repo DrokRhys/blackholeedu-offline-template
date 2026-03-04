@@ -449,8 +449,195 @@ body {
   );
 }
 
-@media (max-width: 1024px) {
-  .slide-photo-panel { display: none; }
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    min-height: 100dvh;
+  }
+  .presentation {
+    width: 100vw;
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+  .slides-wrapper {
+    height: 100%;
+  }
+  .slide {
+    padding: 42px 34px 136px;
+  }
+  .slide-photo-panel {
+    display: none;
+  }
+  .hero-title {
+    font-size: clamp(70px, 11vw, 126px);
+  }
+  .hero-sub {
+    font-size: 18px;
+  }
+  .s-def,
+  .s-anat,
+  .s-spag,
+  .s-time {
+    gap: 36px;
+    width: min(980px, 100%);
+  }
+  .def-visual,
+  .anat-diagram,
+  .spag-vis {
+    transform: scale(0.88);
+    transform-origin: center center;
+  }
+  .slide-body {
+    font-size: 17px;
+    line-height: 1.62;
+  }
+  .nav-bar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: end;
+    padding: 14px 22px calc(16px + env(safe-area-inset-bottom));
+    column-gap: 12px;
+    background: linear-gradient(to top, rgba(3,2,10,0.97), rgba(3,2,10,0.18));
+  }
+  .nav-dots {
+    justify-self: start;
+  }
+  .nav-btns {
+    justify-self: center;
+    gap: 8px;
+  }
+  .nav-main-btns {
+    gap: 10px;
+  }
+  .nav-btn {
+    font-size: 11px;
+    padding: 11px 14px;
+    min-width: 128px;
+  }
+  .slide-counter {
+    justify-self: end;
+    text-align: right;
+  }
+  .music-controls {
+    width: min(58vw, 460px);
+    padding: 7px 9px;
+  }
+  .music-row {
+    grid-template-columns: auto auto auto 1fr;
+    grid-template-areas:
+      "trackPrevBtn audioPlayPauseBtn trackNextBtn musicTrackLabel"
+      "audioSeek audioSeek audioSeek audioSeek"
+      "audioVolume audioVolume audioVolume audioVolume";
+    row-gap: 6px;
+  }
+  #trackPrevBtn { grid-area: trackPrevBtn; }
+  #audioPlayPauseBtn { grid-area: audioPlayPauseBtn; }
+  #trackNextBtn { grid-area: trackNextBtn; }
+  #musicTrackLabel {
+    grid-area: musicTrackLabel;
+    width: auto;
+    text-align: right;
+  }
+  #audioSeek {
+    grid-area: audioSeek;
+    min-width: 0;
+  }
+  #audioVolume {
+    grid-area: audioVolume;
+    min-width: 0;
+    width: min(220px, 100%);
+    justify-self: end;
+  }
+  .back-home-link,
+  .lang-switch button,
+  .about-link {
+    font-size: 10px;
+  }
+  .back-home-link,
+  .about-link {
+    padding: 9px 11px;
+  }
+  .back-home-link {
+    top: 14px;
+    left: 12px;
+  }
+  .lang-switch {
+    top: 14px;
+    left: 162px;
+  }
+  .about-link {
+    top: 14px;
+    left: 250px;
+  }
+  .slide[data-i="3"] {
+    width: 100% !important;
+    padding: 32px 24px 136px !important;
+  }
+  .slide[data-i="3"] > div {
+    max-width: 980px !important;
+    gap: 28px !important;
+    align-items: flex-start !important;
+  }
+  .slide[data-i="3"] > div > div:first-child {
+    flex: 0 0 320px !important;
+  }
+  #canvasWrapA,
+  #canvasWrapB {
+    height: 320px !important;
+  }
+  #particleCanvas,
+  #densityCanvas {
+    width: 320px !important;
+    height: 320px !important;
+  }
+  .slide[data-i="3"] div[style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .nav-bar {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    justify-items: center;
+    align-items: center;
+    padding: 12px 16px calc(16px + env(safe-area-inset-bottom));
+  }
+  .nav-dots,
+  .slide-counter,
+  .nav-btns {
+    justify-self: center;
+    text-align: center;
+  }
+  .music-controls {
+    width: min(88vw, 540px);
+  }
+  .slide[data-i="3"] > div {
+    flex-direction: column;
+    max-width: 700px !important;
+  }
+  .slide[data-i="3"] > div > div:first-child {
+    flex: 0 0 auto !important;
+    width: 100%;
+  }
+  #particleCanvas,
+  #densityCanvas,
+  #canvasWrapA,
+  #canvasWrapB {
+    width: min(100%, 360px) !important;
+    height: min(100%, 360px) !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .slide[data-i="3"] div[style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .slide-photo-panel {
+    display: none;
+  }
 }
 
 .about-section {
@@ -1146,9 +1333,9 @@ body {
     </p>
     <div class="about-actions">
       <div class="about-card">
-        <h3 id="humanTitle">Are you human?</h3>
-        <p id="humanBody">Use ready-to-use files and generate a similar presentation quickly with minimal prompting.</p>
-        <a id="downloadPromptBtn" class="about-btn" href="#" download>Download BlackHoleEdu (Offline ZIP)</a>
+        <h3 id="humanTitle">Download This Template</h3>
+        <p id="humanBody">You can download this template here and reuse it for your own presentation.</p>
+        <a id="downloadPromptBtn" class="about-btn" href="/blackholeedu/downloads/blackholeedu-offline.zip" download>Download BlackHoleEdu (Offline ZIP)</a>
       </div>
     </div>
     <div id="aboutFooter" class="about-footer">
@@ -1218,9 +1405,9 @@ const uiText = {
     aboutTitle: 'O Šabloně',
     aboutBody: 'Tahle šablona je pro volné použití: můžeš ji použít pro libovolné téma prezentace a upravit podle sebe.',
     downloadPrompt: 'Stáhnout BlackHoleEdu (Offline ZIP)',
-    humanTitle: 'Jsi člověk?',
-    humanBody: 'Stáhni si kompletní offline verzi stránky BlackHoleEdu včetně assetů.',
-    footerHtml: 'Copyright © 2026 - Made with ♥ by <a href="https://github.com/DrokRhys" target="_blank" rel="noopener noreferrer">Drok Rhys</a> at <a href="https://magiostudios.com" target="_blank" rel="noopener noreferrer">Magio Studios</a>. Join the community on <a href="https://patreon.com/magiostudios" target="_blank" rel="noopener noreferrer">Patreon</a>.<br>Tato šablona je poskytována pro volné použití pod licencí MIT. Každou prezentaci můžeš použít a upravit podle sebe. Offline verze funguje bez internetu: stáhni ZIP, rozbal ho a otevři <code>index.html</code> v prohlížeči (pokud se hudba nespustí sama, klikni na Play). Hudba byla vytvořena v Suno (Pro účet); použití je vázáno na podmínky Suno. Zdroje obrázků jsou uvedené v <a href="./images/slides/README.md" target="_blank" rel="noopener noreferrer">README</a> (NASA/ESA/open sources).',
+    humanTitle: 'Stáhnout tuto šablonu',
+    humanBody: 'Zde si můžeš stáhnout tuto šablonu a použít ji pro vlastní prezentaci.',
+    footerHtml: 'Copyright © 2026 - Made with ♥ by <a href="https://github.com/DrokRhys" target="_blank" rel="noopener noreferrer">Drok Rhys</a> at <a href="https://magiostudios.com" target="_blank" rel="noopener noreferrer">Magio Studios</a>. Join the community on <a href="https://patreon.com/magiostudios" target="_blank" rel="noopener noreferrer">Patreon</a>.<br>Tato šablona je poskytována pro volné použití pod licencí MIT. Každou prezentaci můžeš použít a upravit podle sebe. Offline verze funguje bez internetu: stáhni ZIP, rozbal ho a otevři <code>index.html</code> v prohlížeči (pokud se hudba nespustí sama, klikni na Play). Hudba byla vytvořena v Suno (Pro účet); použití je vázáno na podmínky Suno. Zdroje obrázků jsou uvedené v <a href="/blackholeedu/images/slides/README.md" target="_blank" rel="noopener noreferrer">README</a> (NASA/ESA/open sources).',
   },
   en: {
     backHome: '← Back to Homepage',
@@ -1247,9 +1434,9 @@ const uiText = {
     aboutTitle: 'About This Template',
     aboutBody: 'This template is for free use: you can adapt it to any presentation topic and modify it as needed.',
     downloadPrompt: 'Download BlackHoleEdu (Offline ZIP)',
-    humanTitle: 'Are you human?',
-    humanBody: 'Download the complete offline BlackHoleEdu page with all assets.',
-    footerHtml: 'Copyright © 2026 - Made with ♥ by <a href="https://github.com/DrokRhys" target="_blank" rel="noopener noreferrer">Drok Rhys</a> at <a href="https://magiostudios.com" target="_blank" rel="noopener noreferrer">Magio Studios</a>. Join the community on <a href="https://patreon.com/magiostudios" target="_blank" rel="noopener noreferrer">Patreon</a>.<br>This template is provided for free use under the MIT License. You may use and modify any presentation made with it. Offline mode works without internet: download the ZIP, extract it, then open <code>index.html</code> in your browser (if audio does not start automatically, click Play). Music was generated with Suno (Pro account); usage remains subject to Suno Terms. Image sources are listed in the <a href="./images/slides/README.md" target="_blank" rel="noopener noreferrer">README</a> (NASA/ESA/open sources).',
+    humanTitle: 'Download This Template',
+    humanBody: 'You can download this template here and reuse it for your own presentation.',
+    footerHtml: 'Copyright © 2026 - Made with ♥ by <a href="https://github.com/DrokRhys" target="_blank" rel="noopener noreferrer">Drok Rhys</a> at <a href="https://magiostudios.com" target="_blank" rel="noopener noreferrer">Magio Studios</a>. Join the community on <a href="https://patreon.com/magiostudios" target="_blank" rel="noopener noreferrer">Patreon</a>.<br>This template is provided for free use under the MIT License. You may use and modify any presentation made with it. Offline mode works without internet: download the ZIP, extract it, then open <code>index.html</code> in your browser (if audio does not start automatically, click Play). Music was generated with Suno (Pro account); usage remains subject to Suno Terms. Image sources are listed in the <a href="/blackholeedu/images/slides/README.md" target="_blank" rel="noopener noreferrer">README</a> (NASA/ESA/open sources).',
   },
 };
 
@@ -1385,16 +1572,16 @@ function applyPresentationLanguage(lang) {
 }
 const slidePhotoUrls = [
   '',
-  './images/slides/slide-02.jpg',
-  './images/slides/slide-03.jpg',
-  './images/slides/slide-04.jpg',
-  './images/slides/slide-05.jpg',
-  './images/slides/slide-06.jpg',
-  './images/slides/slide-07.jpg',
-  './images/slides/slide-08.jpg',
-  './images/slides/slide-09.jpg',
+  '/blackholeedu/images/slides/slide-02.jpg',
+  '/blackholeedu/images/slides/slide-03.jpg',
+  '/blackholeedu/images/slides/slide-04.jpg',
+  '/blackholeedu/images/slides/slide-05.jpg',
+  '/blackholeedu/images/slides/slide-06.jpg',
+  '/blackholeedu/images/slides/slide-07.jpg',
+  '/blackholeedu/images/slides/slide-08.jpg',
+  '/blackholeedu/images/slides/slide-09.jpg',
 ];
-const slidePhotoFallbackArt = './images/slides/slide-fallback.jpg';
+const slidePhotoFallbackArt = '/blackholeedu/images/slides/slide-fallback.jpg';
 
 if (backHomeLink) {
   backHomeLink.textContent = uiText[pageLang].backHome;
